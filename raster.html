@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@5"></script>
+    <title>Raster Assignment</title>
+</head>
+
+<center>
+
+    <h2>Hypothesis: Three of the main greenhouse gasses; ozone, carbon monoxide, and nitrogen oxide will be in the urban areas of the world.</h2>
+</center>
+
+<body>
+<div class="main"></div>
+<div class="column1"></div>
+<div id="O3_raster"></div>
+<div id="CO2_raster"></div>
+<div id="NO2_raster"></div>
+
+<div class="column2">
+    <p>Data is calculated by NASA Center for Climate Simulation (NCCS) for December 1, 2018 at 00:30am. All measurements are modeled from the molar weight (MW) of each gas mixing with dry air. The cells of the model grid are 0.25deg and the world plot is from a 1deg (110m) spacial resolution adapted by Vega and originally created by @mattijn at https://github.com/mattijn</p>
+</div>
+
+<div class="column3">
+    <h3>There is some spacial correlation between the three greenhouse gasses plotted here but not as much as I expected. The biggest thing is that carbon monoxide and nitrogen dioxide seem to have spacial correlation around India and north-east Asia. It is interesting to see how mountain ranges act as barrirers and cumulation zones of these greenhouse gasses    </h3>
+</div>
+
+
+<script>
+
+    const O3_spec = "O3.vg.json";
+    vegaEmbed("#O3_raster", O3_spec)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const CO_spec = "CO2.vg.json";
+    vegaEmbed("#CO2_raster", CO_spec)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+
+    const NO2_spec = "NO2.vg.json";
+    vegaEmbed("#NO2_raster", NO2_spec)
+        // result.view provides access to the Vega View API
+        .then(result => console.log(result))
+        .catch(console.warn);
+</script>
+</body>
+</html>
+
